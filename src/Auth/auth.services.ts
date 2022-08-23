@@ -45,6 +45,11 @@ export class AuthService {
     async signIn(dto: AuthDto) {
 
         //Find the user in database by Email
+        const user = await this.prisma.user.findUnique({
+            where: {
+                email : dto.email
+            }
+        })
         //If user doesn't exist; Throw Exception
 
         //Compare the password
