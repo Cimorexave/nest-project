@@ -4,7 +4,7 @@ import { Injectable } from "@nestjs/common";
 export class AuthService {
     signUp() {
         //Signing Up logic
-
+        
 
         //Sucessfull message return
         return {
