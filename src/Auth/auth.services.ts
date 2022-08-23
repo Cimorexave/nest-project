@@ -42,7 +42,15 @@ export class AuthService {
 
     }
 
-    signIn() {
+    async signIn(dto: AuthDto) {
+
+        //Find the user in database by Email
+        //If user doesn't exist; Throw Exception
+
+        //Compare the password
+        //If the password doesn't math; Throw Exception
+
+        //Return the User
 
     }
 }
