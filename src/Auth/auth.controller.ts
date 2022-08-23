@@ -7,11 +7,23 @@ export class AuthController {
 
     @Get("/signup") // Get -> auth/signup
     getSignUp () {
-        this.authService.signup()
+        return {
+            success: true,
+            msg: "Sign Up / Get. Send a post reqest to sign up a new user."
+        }
     }
 
     @Post("/signup") // Post -> auth/signup
     signUp() {
+        //Signing Up logic goes here; using the services.
+
+        this.authService.signup()
+
+        //Sucessfull message return
+        return {
+            success: true,
+            msg: "Signed up successfully"
+        }
 
     }
 
