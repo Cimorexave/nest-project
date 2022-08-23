@@ -2,7 +2,19 @@ import { Injectable } from "@nestjs/common";
 
 @Injectable () 
 export class AuthService {
-    signup() {
-        return "signup function"
+    signUp() {
+        //Signing Up logic
+
+
+        //Sucessfull message return
+        return {
+            success: true,
+            msg: "Signed up successfully"
+        }
+
+    }
+
+    signIn() {
+
     }
 }
