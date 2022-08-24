@@ -1,6 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateUserDto } from './dto/users.dto';
+import { userRequest } from './dto';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -8,9 +8,9 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @UseGuards(AuthGuard('jwt'))
-  @Get('/me')
-  getMe() {
-    return "User Info"
+  @Get('me')
+  getMe(@Req() req: userRequest) {
+    return req.user;
   }
 
 }
