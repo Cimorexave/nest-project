@@ -51,7 +51,7 @@ export class AuthService {
             }
         })
         //If user doesn't exist; Throw Exception
-
+        if (!user) throw new ForbiddenException("Credentials Don't exist")
         //Compare the password
         //If the password doesn't math; Throw Exception
 
