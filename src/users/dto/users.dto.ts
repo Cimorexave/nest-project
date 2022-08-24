@@ -1,1 +1,3 @@
-export class CreateUserDto {}
+export interface userRequest extends Request {
+    user: object
+}
