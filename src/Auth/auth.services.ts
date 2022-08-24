@@ -53,9 +53,15 @@ export class AuthService {
         //If user doesn't exist; Throw Exception
         if (!user) throw new ForbiddenException("Credentials Don't exist")
         //Compare the password
+        const passMatches = await argon.verify(user.hashedPassword, dto.password)
         //If the password doesn't math; Throw Exception
-
+        if (!passMatches) throw new ForbiddenException("Credentials Incorrect");
         //Return the User
-
+        delete user.hashedPassword;
+        return {
+            success: true,
+            msg: "Sign In Successfully",
+            user
+        };
     }
 }
