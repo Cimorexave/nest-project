@@ -1,7 +1,8 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsObject, IsString } from "class-validator";
+import { Request } from "express";
 
 export class userRequest extends Request {
-    @IsString()
+    @IsObject()
     @IsNotEmpty()
     user: object
 }
